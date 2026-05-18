@@ -1,9 +1,32 @@
-import type { SurfaceTheme } from '@ankhorage/surface';
-
 import type { ChessBoardColorOverrides, ChessBoardColorScheme } from './types';
 
+export interface ChessColorThemeShape {
+  semantics: {
+    action: {
+      primary: {
+        softBg: string;
+      };
+    };
+    content: {
+      default: string;
+      muted: string;
+    };
+    neutral: {
+      divider: string;
+      surface: string;
+      surfaceHover: string;
+    };
+    success: {
+      softBg: string;
+    };
+    warning: {
+      softBg: string;
+    };
+  };
+}
+
 export function createChessBoardColorScheme(
-  theme: SurfaceTheme,
+  theme: ChessColorThemeShape,
   overrides?: ChessBoardColorOverrides,
 ): ChessBoardColorScheme {
   return {
