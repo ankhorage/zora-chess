@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test';
 
-import { createChessBoardColorScheme, type ChessColorThemeShape } from './colors';
+import { type ChessColorThemeShape, createChessBoardColorScheme } from './colors';
 
 const theme = {
   semantics: {

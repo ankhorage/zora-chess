@@ -1,6 +1,6 @@
 {
   "packageName": "@ankhorage/zora-chessboard",
-  "packageId": "@ankhorage/zora-chessboard",
+  "packageId": "@ankhorage/zora-chess",
   "description": "Chessboard component for React Native and React Native Web apps built on ZORA.",
   "badges": [
     {
@@ -63,20 +63,1588 @@
   "entrypoints": ["src/index.ts"],
   "modules": [
     {
+      "path": "src/ChessBoard.tsx",
+      "isEntrypoint": false,
+      "dependencies": ["src/colors.ts", "src/engine.ts", "src/squares.ts", "src/types.ts"],
+      "exports": ["ChessBoard"]
+    },
+    {
+      "path": "src/colors.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts"],
+      "exports": ["ChessColorThemeShape", "createChessBoardColorScheme"]
+    },
+    {
+      "path": "src/engine.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts"],
+      "exports": ["ChessPieceState", "getLegalTargets", "readChessPieces", "tryMove"]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
-      "exports": []
+      "exports": [
+        "ChessBoard",
+        "ChessBoardColorOverrides",
+        "ChessBoardColorScheme",
+        "chessBoardMeta",
+        "ChessBoardOrientation",
+        "ChessBoardProps",
+        "ChessColorThemeShape",
+        "ChessMoveAttempt",
+        "ChessMoveResult",
+        "ChessPieceCode",
+        "ChessPieceRenderContext",
+        "ChessPieceRenderer",
+        "ChessPieceState",
+        "ChessPromotionPiece",
+        "ChessSquareId",
+        "chessSquares",
+        "createBoardSquares",
+        "createChessBoardColorScheme",
+        "getLegalTargets",
+        "getSquareFile",
+        "getSquareRank",
+        "isLightSquare",
+        "readChessPieces",
+        "tryMove",
+        "ZORA_CHESS_COMPONENT_META"
+      ]
+    },
+    {
+      "path": "src/meta.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": ["chessBoardMeta"]
+    },
+    {
+      "path": "src/registry.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/meta.ts"],
+      "exports": ["ZORA_CHESS_COMPONENT_META"]
+    },
+    {
+      "path": "src/squares.ts",
+      "isEntrypoint": false,
+      "dependencies": ["src/types.ts"],
+      "exports": [
+        "chessSquares",
+        "createBoardSquares",
+        "getSquareFile",
+        "getSquareRank",
+        "isLightSquare"
+      ]
+    },
+    {
+      "path": "src/types.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "ChessBoardColorOverrides",
+        "ChessBoardColorScheme",
+        "ChessBoardOrientation",
+        "ChessBoardProps",
+        "ChessMoveAttempt",
+        "ChessMoveResult",
+        "ChessPieceCode",
+        "ChessPieceRenderContext",
+        "ChessPieceRenderer",
+        "ChessPromotionPiece",
+        "ChessSquareId"
+      ]
     }
   ],
-  "exports": [],
+  "exports": [
+    {
+      "name": "ChessBoard",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/ChessBoard.tsx",
+      "sourceLocation": {
+        "filePath": "src/ChessBoard.tsx",
+        "line": 179,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessBoardColorOverrides",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 48,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessBoardColorScheme",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "border",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "coordinateText",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "darkPiece",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "darkSquare",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "darkSquareText",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lastMoveFrom",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lastMoveTo",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "legalTarget",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lightPiece",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lightSquare",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lightSquareText",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "selectedSquare",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "chessBoardMeta",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/meta.ts",
+      "sourceLocation": {
+        "filePath": "src/meta.ts",
+        "line": 3,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessBoardOrientation",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessBoardProps",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 50,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [
+        "ChessBoardColorScheme",
+        "ChessBoardOrientation",
+        "ChessMoveAttempt",
+        "ChessMoveResult",
+        "ChessPieceRenderer",
+        "ChessSquareId"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "colorScheme",
+          "kind": "property",
+          "type": "Partial<ChessBoardColorScheme> | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "disabled",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "fen",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lastMove",
+          "kind": "property",
+          "type": "ChessMoveAttempt | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "legalTargets",
+          "kind": "property",
+          "type": "readonly Square[] | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onInvalidMove",
+          "kind": "property",
+          "type": "((move: ChessMoveAttempt) => void) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onLegalMove",
+          "kind": "property",
+          "type": "((move: ChessMoveResult) => void) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onMoveAttempt",
+          "kind": "property",
+          "type": "((move: ChessMoveAttempt) => void) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "onSquarePress",
+          "kind": "property",
+          "type": "((square: ChessSquareId) => void) | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "orientation",
+          "kind": "property",
+          "type": "ChessBoardOrientation | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "renderPiece",
+          "kind": "property",
+          "type": "ChessPieceRenderer | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "selectedSquare",
+          "kind": "property",
+          "type": "Square | null | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "showCoordinates",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "testID",
+          "kind": "property",
+          "type": "string | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "validateMoves",
+          "kind": "property",
+          "type": "boolean | undefined",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessColorThemeShape",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/colors.ts",
+      "sourceLocation": {
+        "filePath": "src/colors.ts",
+        "line": 3,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "semantics",
+          "kind": "property",
+          "type": "{ action: { primary: { softBg: string; }; }; content: { default: string; muted: string; }; neutral: { divider: string; surface: string; surfaceHover: string; }; success: { softBg: string; }; warning: { softBg: string; }; }",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessMoveAttempt",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 13,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ChessPromotionPiece"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "from",
+          "kind": "property",
+          "type": "Square",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "promotion",
+          "kind": "property",
+          "type": "ChessPromotionPiece | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "to",
+          "kind": "property",
+          "type": "Square",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessMoveResult",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 19,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ChessPromotionPiece"],
+      "signatures": [],
+      "members": [
+        {
+          "name": "fen",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "from",
+          "kind": "property",
+          "type": "Square",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "lan",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "promotion",
+          "kind": "property",
+          "type": "ChessPromotionPiece | undefined",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "san",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "to",
+          "kind": "property",
+          "type": "Square",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessPieceCode",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 9,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessPieceRenderContext",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 25,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "color",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "piece",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "square",
+          "kind": "property",
+          "type": "Square",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessPieceRenderer",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 31,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessPieceState",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "type",
+      "modulePath": "src/engine.ts",
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "color",
+          "kind": "property",
+          "type": "\"black\" | \"white\"",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "piece",
+          "kind": "property",
+          "type": "string",
+          "required": true,
+          "description": null
+        },
+        {
+          "name": "square",
+          "kind": "property",
+          "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessPromotionPiece",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 11,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessSquareId",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "unknown",
+      "modulePath": "src/types.ts",
+      "sourceLocation": {
+        "filePath": "src/types.ts",
+        "line": 5,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "chessSquares",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/squares.ts",
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 6,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createBoardSquares",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/squares.ts",
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 8,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ChessBoardOrientation"],
+      "signatures": [
+        {
+          "label": "(orientation: ChessBoardOrientation) => readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "parameters": [
+            {
+              "name": "orientation",
+              "type": "ChessBoardOrientation",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createChessBoardColorScheme",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/colors.ts",
+      "sourceLocation": {
+        "filePath": "src/colors.ts",
+        "line": 28,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ChessBoardColorScheme", "ChessColorThemeShape"],
+      "signatures": [
+        {
+          "label": "(theme: ChessColorThemeShape, overrides?: Partial<ChessBoardColorScheme> | undefined) => ChessBoardColorScheme",
+          "parameters": [
+            {
+              "name": "overrides",
+              "type": "Partial<ChessBoardColorScheme> | undefined",
+              "required": false,
+              "description": null
+            },
+            {
+              "name": "theme",
+              "type": "ChessColorThemeShape",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ChessBoardColorScheme",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "getLegalTargets",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/engine.ts",
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 60,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(fen: string, from: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "parameters": [
+            {
+              "name": "fen",
+              "type": "string",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "from",
+              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "getSquareFile",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/squares.ts",
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 22,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(square: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => string",
+          "parameters": [
+            {
+              "name": "square",
+              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "string",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "getSquareRank",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/squares.ts",
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 26,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(square: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => string",
+          "parameters": [
+            {
+              "name": "square",
+              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "string",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "isLightSquare",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/squares.ts",
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [
+        {
+          "label": "(square: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => boolean",
+          "parameters": [
+            {
+              "name": "square",
+              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "boolean",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "readChessPieces",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/engine.ts",
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 34,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ChessPieceState"],
+      "signatures": [
+        {
+          "label": "(fen: string) => ReadonlyMap<import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square, ChessPieceState>",
+          "parameters": [
+            {
+              "name": "fen",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ReadonlyMap<import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square, ChessPieceState>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "tryMove",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "function",
+      "modulePath": "src/engine.ts",
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 69,
+        "column": 1
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": ["ChessMoveAttempt", "ChessMoveResult"],
+      "signatures": [
+        {
+          "label": "(fen: string, attempt: ChessMoveAttempt) => ChessMoveResult | null",
+          "parameters": [
+            {
+              "name": "attempt",
+              "type": "ChessMoveAttempt",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "fen",
+              "type": "string",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "ChessMoveResult | null",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ZORA_CHESS_COMPONENT_META",
+      "description": null,
+      "isReadme": false,
+      "examples": [],
+      "kind": "value",
+      "modulePath": "src/registry.ts",
+      "sourceLocation": {
+        "filePath": "src/registry.ts",
+        "line": 3,
+        "column": 14
+      },
+      "exportPaths": ["src/index.ts"],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    }
+  ],
   "components": [],
-  "sourceFunctions": [],
-  "sequenceScenarios": [],
+  "sourceFunctions": [
+    {
+      "name": "isDarkPiece",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/ChessBoard.tsx",
+        "line": 31,
+        "column": 1
+      }
+    },
+    {
+      "name": "DefaultPiece",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/ChessBoard.tsx",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "name": "ChessBoardInner",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/ChessBoard.tsx",
+        "line": 43,
+        "column": 1
+      }
+    },
+    {
+      "name": "handleSquarePress",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/ChessBoard.tsx",
+        "line": 81,
+        "column": 9
+      }
+    },
+    {
+      "name": "createChessBoardColorScheme",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/colors.ts",
+        "line": 28,
+        "column": 1
+      }
+    },
+    {
+      "name": "createChess",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "name": "toPieceCode",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 19,
+        "column": 1
+      }
+    },
+    {
+      "name": "toMoveResult",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "name": "readChessPieces",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 34,
+        "column": 1
+      }
+    },
+    {
+      "name": "getLegalTargets",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 60,
+        "column": 1
+      }
+    },
+    {
+      "name": "tryMove",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/engine.ts",
+        "line": 69,
+        "column": 1
+      }
+    },
+    {
+      "name": "createBoardSquares",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 8,
+        "column": 1
+      }
+    },
+    {
+      "name": "isLightSquare",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "getSquareFile",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 22,
+        "column": 1
+      }
+    },
+    {
+      "name": "getSquareRank",
+      "description": null,
+      "sourceLocation": {
+        "filePath": "src/squares.ts",
+        "line": 26,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createBoardSquares",
+      "sourcePath": "src/squares.ts",
+      "symbolName": "createBoardSquares",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "createChessBoardColorScheme",
+      "sourcePath": "src/colors.ts",
+      "symbolName": "createChessBoardColorScheme",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "getLegalTargets",
+      "sourcePath": "src/engine.ts",
+      "symbolName": "getLegalTargets",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "getSquareFile",
+      "sourcePath": "src/squares.ts",
+      "symbolName": "getSquareFile",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "getSquareRank",
+      "sourcePath": "src/squares.ts",
+      "symbolName": "getSquareRank",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "isLightSquare",
+      "sourcePath": "src/squares.ts",
+      "symbolName": "isLightSquare",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "readChessPieces",
+      "sourcePath": "src/engine.ts",
+      "symbolName": "readChessPieces",
+      "description": null,
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "tryMove",
+      "sourcePath": "src/engine.ts",
+      "symbolName": "tryMove",
+      "description": null,
+      "isReadme": false
+    }
+  ],
   "graphs": {
-    "imports": [],
-    "calls": [],
-    "typeReferences": [],
+    "imports": [
+      {
+        "fromPath": "src/ChessBoard.tsx",
+        "toPath": "src/colors.ts",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromPath": "src/ChessBoard.tsx",
+        "toPath": "src/engine.ts",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromPath": "src/ChessBoard.tsx",
+        "toPath": "src/squares.ts",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromPath": "src/ChessBoard.tsx",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromPath": "src/colors.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/colors.ts"
+      },
+      {
+        "fromPath": "src/engine.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/ChessBoard.tsx",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/colors.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/engine.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/meta.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/registry.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/squares.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/registry.ts",
+        "toPath": "src/meta.ts",
+        "sourcePath": "src/registry.ts"
+      },
+      {
+        "fromPath": "src/squares.ts",
+        "toPath": "src/types.ts",
+        "sourcePath": "src/squares.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "ChessBoardInner",
+        "toSymbol": "useZoraTheme",
+        "callExpression": "useZoraTheme",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "createChessBoardColorScheme",
+        "callExpression": "createChessBoardColorScheme",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "createBoardSquares",
+        "callExpression": "createBoardSquares",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "readChessPieces",
+        "callExpression": "readChessPieces",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "getLegalTargets",
+        "callExpression": "getLegalTargets",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "handleSquarePress",
+        "toSymbol": "onSquarePress",
+        "callExpression": "onSquarePress",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "handleSquarePress",
+        "toSymbol": "onMoveAttempt",
+        "callExpression": "onMoveAttempt",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "handleSquarePress",
+        "toSymbol": "tryMove",
+        "callExpression": "tryMove",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "handleSquarePress",
+        "toSymbol": "onLegalMove",
+        "callExpression": "onLegalMove",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "handleSquarePress",
+        "toSymbol": "onInvalidMove",
+        "callExpression": "onInvalidMove",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "isLightSquare",
+        "callExpression": "isLightSquare",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "isDarkPiece",
+        "callExpression": "isDarkPiece",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "handleSquarePress",
+        "callExpression": "handleSquarePress",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "getSquareFile",
+        "callExpression": "getSquareFile",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "getSquareRank",
+        "callExpression": "getSquareRank",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "renderPiece",
+        "callExpression": "renderPiece",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "src/ChessBoard.tsx",
+        "toSymbol": "withZoraThemeScope",
+        "callExpression": "withZoraThemeScope",
+        "sourcePath": "src/ChessBoard.tsx"
+      },
+      {
+        "fromSymbol": "readChessPieces",
+        "toSymbol": "createChess",
+        "callExpression": "createChess",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "src/engine.ts",
+        "toSymbol": "toPieceCode",
+        "callExpression": "toPieceCode",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "getLegalTargets",
+        "toSymbol": "createChess",
+        "callExpression": "createChess",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "tryMove",
+        "toSymbol": "createChess",
+        "callExpression": "createChess",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "tryMove",
+        "toSymbol": "toMoveResult",
+        "callExpression": "toMoveResult",
+        "sourcePath": "src/engine.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "createChessBoardColorScheme",
+        "toType": "ChessBoardColorScheme",
+        "sourcePath": "src/colors.ts"
+      },
+      {
+        "fromSymbol": "createChessBoardColorScheme",
+        "toType": "ChessColorThemeShape",
+        "sourcePath": "src/colors.ts"
+      },
+      {
+        "fromSymbol": "createChessBoardColorScheme",
+        "toType": "Partial",
+        "sourcePath": "src/colors.ts"
+      },
+      {
+        "fromSymbol": "ChessPieceState",
+        "toType": "Square",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "ChessPieceState",
+        "toType": "Users",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "getLegalTargets",
+        "toType": "Square",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "getLegalTargets",
+        "toType": "Users",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "readChessPieces",
+        "toType": "ChessPieceState",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "readChessPieces",
+        "toType": "ReadonlyMap",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "readChessPieces",
+        "toType": "Square",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "readChessPieces",
+        "toType": "Users",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "tryMove",
+        "toType": "ChessMoveAttempt",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "tryMove",
+        "toType": "ChessMoveResult",
+        "sourcePath": "src/engine.ts"
+      },
+      {
+        "fromSymbol": "createBoardSquares",
+        "toType": "ChessBoardOrientation",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "createBoardSquares",
+        "toType": "Square",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "createBoardSquares",
+        "toType": "Users",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "getSquareFile",
+        "toType": "Square",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "getSquareFile",
+        "toType": "Users",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "getSquareRank",
+        "toType": "Square",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "getSquareRank",
+        "toType": "Users",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "isLightSquare",
+        "toType": "Square",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "isLightSquare",
+        "toType": "Users",
+        "sourcePath": "src/squares.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "ChessBoardColorScheme",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "ChessBoardOrientation",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "ChessMoveAttempt",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "ChessMoveResult",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "ChessPieceRenderer",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "ChessSquareId",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "Partial",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessBoardProps",
+        "toType": "Square",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessMoveAttempt",
+        "toType": "ChessPromotionPiece",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessMoveAttempt",
+        "toType": "Square",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessMoveResult",
+        "toType": "ChessPromotionPiece",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessMoveResult",
+        "toType": "Square",
+        "sourcePath": "src/types.ts"
+      },
+      {
+        "fromSymbol": "ChessPieceRenderContext",
+        "toType": "Square",
+        "sourcePath": "src/types.ts"
+      }
+    ],
     "componentComposition": []
   }
 }

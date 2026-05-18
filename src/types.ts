@@ -1,6 +1,6 @@
-import type React from 'react';
-import type { Square } from 'chess.js';
 import type { ZoraBaseProps } from '@ankhorage/zora';
+import type { Square } from 'chess.js';
+import type React from 'react';
 
 export type ChessSquareId = Square;
 

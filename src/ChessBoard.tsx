@@ -156,7 +156,8 @@ function ChessBoardInner({
           >
             {showCoordinates ? (
               <Text selectable={false} style={[styles.coordinate, { color: labelColor }]}>
-                {getSquareFile(square)}{getSquareRank(square)}
+                {getSquareFile(square)}
+                {getSquareRank(square)}
               </Text>
             ) : null}
             {piece ? (

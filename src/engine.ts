@@ -1,11 +1,6 @@
-import { Chess, type Move, type Square } from 'chess.js';
+import { Chess, type Move } from 'chess.js';
 
-import type {
-  ChessMoveAttempt,
-  ChessMoveResult,
-  ChessPieceCode,
-  ChessSquareId,
-} from './types';
+import type { ChessMoveAttempt, ChessMoveResult, ChessPieceCode, ChessSquareId } from './types';
 
 export interface ChessPieceState {
   color: 'black' | 'white';
@@ -50,7 +45,7 @@ export function readChessPieces(fen: string): ReadonlyMap<ChessSquareId, ChessPi
         return;
       }
 
-      const square = piece.square as ChessSquareId;
+      const { square } = piece;
       pieces.set(square, {
         color: piece.color === 'w' ? 'white' : 'black',
         piece: toPieceCode(piece),
@@ -68,9 +63,7 @@ export function getLegalTargets(fen: string, from: ChessSquareId): readonly Ches
     return [];
   }
 
-  return chess
-    .moves({ square: from as Square, verbose: true })
-    .map((move) => move.to as ChessSquareId);
+  return chess.moves({ square: from, verbose: true }).map((move) => move.to);
 }
 
 export function tryMove(fen: string, attempt: ChessMoveAttempt): ChessMoveResult | null {
