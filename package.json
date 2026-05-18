@@ -1,7 +1,7 @@
 {
   "name": "@ankhorage/zora-chessboard",
   "type": "module",
-  "version": "2.4.8",
+  "version": "0.0.0",
   "description": "About Chessboard component for React Native and React Native Web apps built on ZORA.",
   "homepage": "https://github.com/ankhorage/zora-chessboard#readme",
   "bugs": {
