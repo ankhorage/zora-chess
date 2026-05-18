@@ -1,4 +1,4 @@
-import { useZoraTheme, withZoraThemeScope } from '@ankhorage/zora';
+import { useZoraTheme } from '@ankhorage/zora';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -40,9 +40,7 @@ function DefaultPiece({ color, piece }: ChessPieceRenderContext) {
   );
 }
 
-function ChessBoardInner({
-  themeId: _themeId,
-  mode: _mode,
+export function ChessBoard({
   fen,
   orientation = 'white',
   selectedSquare = null,
@@ -175,8 +173,6 @@ function ChessBoardInner({
     </View>
   );
 }
-
-export const ChessBoard = withZoraThemeScope(ChessBoardInner);
 
 const styles = StyleSheet.create({
   board: {
