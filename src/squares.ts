@@ -4,7 +4,7 @@ const files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'] as const;
 const ranks = ['1', '2', '3', '4', '5', '6', '7', '8'] as const;
 
 function toSquare(file: (typeof files)[number], rank: (typeof ranks)[number]): ChessSquareId {
-  return `${file}${rank}` as ChessSquareId;
+  return `${file}${rank}`;
 }
 
 export const chessSquares = ranks.flatMap((rank) => files.map((file) => toSquare(file, rank)));
