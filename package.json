@@ -1,11 +1,11 @@
 {
-  "name": "@ankhorage/zora-chessboard",
+  "name": "@ankhorage/zora-chess",
   "type": "module",
   "version": "0.0.0",
-  "description": "About Chessboard component for React Native and React Native Web apps built on ZORA.",
-  "homepage": "https://github.com/ankhorage/zora-chessboard#readme",
+  "description": "Chess components for React Native and React Native Web apps built on ZORA.",
+  "homepage": "https://github.com/ankhorage/zora-chess#readme",
   "bugs": {
-    "url": "https://github.com/ankhorage/zora-chessboard/issues"
+    "url": "https://github.com/ankhorage/zora-chess/issues"
   },
   "license": "MIT",
   "main": "./dist/index.js",
@@ -13,7 +13,7 @@
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ankhorage/zora-chessboard.git"
+    "url": "git+https://github.com/ankhorage/zora-chess.git"
   },
   "keywords": [
     "react-native",
