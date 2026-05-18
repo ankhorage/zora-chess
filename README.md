@@ -15,6 +15,9 @@ Chessboard component for React Native and React Native Web apps built on ZORA.
 - [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
 - [Module relationships](././paradox/diagrams/module-relationships.mmd)
 - [Export graph](././paradox/diagrams/export-graph.mmd)
+- [getLegalTargets sequence](././paradox/diagrams/sequences/get-legal-targets.mmd)
+- [readChessPieces sequence](././paradox/diagrams/sequences/read-chess-pieces.mmd)
+- [tryMove sequence](././paradox/diagrams/sequences/try-move.mmd)
 
 ## Architecture preview
 
@@ -23,10 +26,32 @@ Chessboard component for React Native and React Native Web apps built on ZORA.
 
 ```mermaid
 graph TD
-  package__ankhorage_zora_chessboard["@ankhorage/zora-chessboard"]
+  package__ankhorage_zora_chess["@ankhorage/zora-chessboard"]
   entrypoint_src_index_ts["src/index.ts"]
-  package__ankhorage_zora_chessboard --> entrypoint_src_index_ts
+  package__ankhorage_zora_chess --> entrypoint_src_index_ts
+  module_src_ChessBoard_tsx["src/ChessBoard.tsx"]
+  package__ankhorage_zora_chess -.-> module_src_ChessBoard_tsx
+  module_src_ChessBoard_tsx --> module_src_colors_ts
+  module_src_ChessBoard_tsx --> module_src_engine_ts
+  module_src_ChessBoard_tsx --> module_src_squares_ts
+  module_src_ChessBoard_tsx --> module_src_types_ts
+  module_src_colors_ts["src/colors.ts"]
+  package__ankhorage_zora_chess -.-> module_src_colors_ts
+  module_src_colors_ts --> module_src_types_ts
+  module_src_engine_ts["src/engine.ts"]
+  package__ankhorage_zora_chess -.-> module_src_engine_ts
+  module_src_engine_ts --> module_src_types_ts
   module_src_index_ts["src/index.ts"]
+  module_src_meta_ts["src/meta.ts"]
+  package__ankhorage_zora_chess -.-> module_src_meta_ts
+  module_src_registry_ts["src/registry.ts"]
+  package__ankhorage_zora_chess -.-> module_src_registry_ts
+  module_src_registry_ts --> module_src_meta_ts
+  module_src_squares_ts["src/squares.ts"]
+  package__ankhorage_zora_chess -.-> module_src_squares_ts
+  module_src_squares_ts --> module_src_types_ts
+  module_src_types_ts["src/types.ts"]
+  package__ankhorage_zora_chess -.-> module_src_types_ts
 ```
 
 </details>
