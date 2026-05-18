@@ -1,4 +1,3 @@
-import type { ZoraBaseProps } from '@ankhorage/zora';
 import type { Square } from 'chess.js';
 import type React from 'react';
 
@@ -16,9 +15,10 @@ export interface ChessMoveAttempt {
   promotion?: ChessPromotionPiece;
 }
 
-export interface ChessMoveResult extends ChessMoveAttempt {
+export interface ChessMoveResult extends Omit<ChessMoveAttempt, 'promotion'> {
   fen: string;
   lan: string;
+  promotion?: ChessPromotionPiece;
   san: string;
 }
 
@@ -47,7 +47,7 @@ export interface ChessBoardColorScheme {
 
 export type ChessBoardColorOverrides = Partial<ChessBoardColorScheme>;
 
-export interface ChessBoardProps extends ZoraBaseProps {
+export interface ChessBoardProps {
   fen: string;
   orientation?: ChessBoardOrientation;
   selectedSquare?: ChessSquareId | null;
