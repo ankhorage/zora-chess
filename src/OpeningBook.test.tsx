@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'bun:test';
 
 import type { ChessColorThemeShape } from './colors';
-import { createOpeningBookColorScheme } from './OpeningBook';
+import { createOpeningBookColorScheme } from './OpeningBookColors';
 
 const theme = {
   semantics: {
