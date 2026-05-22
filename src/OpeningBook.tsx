@@ -2,8 +2,8 @@ import { useZoraTheme } from '@ankhorage/zora';
 import React from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { createOpeningBookColorScheme } from './OpeningBookColors';
 import type { OpeningBookColorOverrides } from './OpeningBookColors';
+import { createOpeningBookColorScheme } from './OpeningBookColors';
 
 export interface OpeningBookMove {
   readonly san: string;
@@ -59,11 +59,11 @@ export function OpeningBook({
       ]}
       testID={testID}
     >
-      <Text selectable={false} style={[styles.title, { color: colors.titleText }]}> 
+      <Text selectable={false} style={[styles.title, { color: colors.titleText }]}>
         {title}
       </Text>
       {showState ? (
-        <Text selectable={false} style={[styles.stateText, { color: colors.secondaryText }]}> 
+        <Text selectable={false} style={[styles.stateText, { color: colors.secondaryText }]}>
           {stateText}
         </Text>
       ) : (
@@ -89,16 +89,22 @@ export function OpeningBook({
                 testID={testID ? `${testID}-move-${move.san}` : undefined}
               >
                 <View style={styles.moveMain}>
-                  <Text selectable={false} style={[styles.moveSan, { color: colors.primaryText }]}> 
+                  <Text selectable={false} style={[styles.moveSan, { color: colors.primaryText }]}>
                     {move.san}
                   </Text>
-                  <Text selectable={false} style={[styles.moveMeta, { color: colors.secondaryText }]}> 
+                  <Text
+                    selectable={false}
+                    style={[styles.moveMeta, { color: colors.secondaryText }]}
+                  >
                     {formatOpeningBookMoveMeta(move)}
                   </Text>
                 </View>
                 {stats ? (
-                  <View style={[styles.metricBadge, { backgroundColor: colors.metricSurface }]}> 
-                    <Text selectable={false} style={[styles.metricText, { color: colors.secondaryText }]}> 
+                  <View style={[styles.metricBadge, { backgroundColor: colors.metricSurface }]}>
+                    <Text
+                      selectable={false}
+                      style={[styles.metricText, { color: colors.secondaryText }]}
+                    >
                       {stats}
                     </Text>
                   </View>

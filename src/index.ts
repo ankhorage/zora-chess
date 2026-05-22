@@ -4,13 +4,10 @@ export { createChessBoardColorScheme } from './colors';
 export type { ChessPieceState } from './engine';
 export { getLegalTargets, readChessPieces, tryMove } from './engine';
 export { chessBoardMeta, openingBookMeta } from './meta';
-export { OpeningBook } from './OpeningBook';
 export type { OpeningBookMove, OpeningBookProps } from './OpeningBook';
+export { OpeningBook } from './OpeningBook';
+export type { OpeningBookColorOverrides, OpeningBookColorScheme } from './OpeningBookColors';
 export { createOpeningBookColorScheme } from './OpeningBookColors';
-export type {
-  OpeningBookColorOverrides,
-  OpeningBookColorScheme,
-} from './OpeningBookColors';
 export { ZORA_CHESS_COMPONENT_META } from './registry';
 export {
   chessSquares,
