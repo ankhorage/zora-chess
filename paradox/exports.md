@@ -193,11 +193,11 @@ Source: `src/engine.ts:11:1`
 
 ### Members
 
-| Name   | Kind     | Type                                                                                          | Required | Description |
-| ------ | -------- | --------------------------------------------------------------------------------------------- | -------- | ----------- |
-| color  | property | `"black" \| "white"`                                                                          | yes      |             |
-| piece  | property | `string`                                                                                      | yes      |             |
-| square | property | `import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square` | yes      |             |
+| Name   | Kind     | Type                                         | Required | Description |
+| ------ | -------- | -------------------------------------------- | -------- | ----------- |
+| color  | property | `"black" \| "white"`                         | yes      |             |
+| piece  | property | `string`                                     | yes      |             |
+| square | property | `import("chess.js/dist/types/chess").Square` | yes      |             |
 
 ## ChessPromotionPiece
 
@@ -225,9 +225,9 @@ Source: `src/squares.ts:12:1`
 
 ### Signatures
 
-- `(orientation: ChessBoardOrientation) => readonly import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square[]`
+- `(orientation: ChessBoardOrientation) => readonly import("chess.js/dist/types/chess").Square[]`
   - orientation: `ChessBoardOrientation`
-  - returns: `readonly import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square[]`
+  - returns: `readonly import("chess.js/dist/types/chess").Square[]`
 
 ## createChessBoardColorScheme
 
@@ -274,10 +274,10 @@ Source: `src/engine.ts:74:1`
 
 ### Signatures
 
-- `(fen: string, from: import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square) => readonly import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square[]`
+- `(fen: string, from: import("chess.js/dist/types/chess").Square) => readonly import("chess.js/dist/types/chess").Square[]`
   - fen: `string`
-  - from: `import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square`
-  - returns: `readonly import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square[]`
+  - from: `import("chess.js/dist/types/chess").Square`
+  - returns: `readonly import("chess.js/dist/types/chess").Square[]`
 
 ## getSquareFile
 
@@ -287,8 +287,8 @@ Source: `src/squares.ts:26:1`
 
 ### Signatures
 
-- `(square: import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square) => string`
-  - square: `import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square`
+- `(square: import("chess.js/dist/types/chess").Square) => string`
+  - square: `import("chess.js/dist/types/chess").Square`
   - returns: `string`
 
 ## getSquareRank
@@ -299,8 +299,8 @@ Source: `src/squares.ts:30:1`
 
 ### Signatures
 
-- `(square: import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square) => string`
-  - square: `import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square`
+- `(square: import("chess.js/dist/types/chess").Square) => string`
+  - square: `import("chess.js/dist/types/chess").Square`
   - returns: `string`
 
 ## isLightSquare
@@ -311,8 +311,8 @@ Source: `src/squares.ts:19:1`
 
 ### Signatures
 
-- `(square: import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square) => boolean`
-  - square: `import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square`
+- `(square: import("chess.js/dist/types/chess").Square) => boolean`
+  - square: `import("chess.js/dist/types/chess").Square`
   - returns: `boolean`
 
 ## OpeningBook
@@ -411,17 +411,17 @@ Source: `src/OpeningBook.tsx:20:1`
 
 ### Members
 
-| Name         | Kind     | Type                                                                                                               | Required | Description |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------ | -------- | ----------- |
-| colorScheme  | property | `Partial<import("/Users/a_rtiphishl_e/git/zora-chess/src/OpeningBookColors").OpeningBookColorScheme> \| undefined` | no       |             |
-| emptyText    | property | `string \| undefined`                                                                                              | no       |             |
-| errorText    | property | `string \| undefined`                                                                                              | no       |             |
-| loading      | property | `boolean \| undefined`                                                                                             | no       |             |
-| moves        | property | `readonly OpeningBookMove[] \| undefined`                                                                          | no       |             |
-| onMovePress  | property | `((move: OpeningBookMove) => void) \| undefined`                                                                   | no       |             |
-| selectedMove | property | `string \| null \| undefined`                                                                                      | no       |             |
-| testID       | property | `string \| undefined`                                                                                              | no       |             |
-| title        | property | `string \| undefined`                                                                                              | no       |             |
+| Name         | Kind     | Type                                                                             | Required | Description |
+| ------------ | -------- | -------------------------------------------------------------------------------- | -------- | ----------- |
+| colorScheme  | property | `Partial<import("./src/OpeningBookColors").OpeningBookColorScheme> \| undefined` | no       |             |
+| emptyText    | property | `string \| undefined`                                                            | no       |             |
+| errorText    | property | `string \| undefined`                                                            | no       |             |
+| loading      | property | `boolean \| undefined`                                                           | no       |             |
+| moves        | property | `readonly OpeningBookMove[] \| undefined`                                        | no       |             |
+| onMovePress  | property | `((move: OpeningBookMove) => void) \| undefined`                                 | no       |             |
+| selectedMove | property | `string \| null \| undefined`                                                    | no       |             |
+| testID       | property | `string \| undefined`                                                            | no       |             |
+| title        | property | `string \| undefined`                                                            | no       |             |
 
 ## readChessPieces
 
@@ -431,9 +431,9 @@ Source: `src/engine.ts:48:1`
 
 ### Signatures
 
-- `(fen: string) => ReadonlyMap<import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square, ChessPieceState>`
+- `(fen: string) => ReadonlyMap<import("chess.js/dist/types/chess").Square, ChessPieceState>`
   - fen: `string`
-  - returns: `ReadonlyMap<import("/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess").Square, ChessPieceState>`
+  - returns: `ReadonlyMap<import("chess.js/dist/types/chess").Square, ChessPieceState>`
 
 ## tryMove
 

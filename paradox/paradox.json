@@ -2,6 +2,7 @@
   "packageName": "@ankhorage/zora-chess",
   "packageId": "@ankhorage/zora-chess",
   "description": "Chess UI components for React Native and React Native Web apps built on ZORA.",
+  "donation": null,
   "badges": [
     {
       "id": "license",
@@ -12,7 +13,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.1.1",
+      "value": "v0.1.2",
       "color": "cb3837"
     },
     {
@@ -59,6 +60,7 @@
     }
   ],
   "usage": null,
+  "readmeUsageDescription": null,
   "readmeUsage": [
     {
       "title": "Minimal chess app root.",
@@ -68,6 +70,8 @@
       "sourcePath": "examples/basic-chess/App.tsx"
     }
   ],
+  "readmeCli": null,
+  "readmeConfig": null,
   "config": null,
   "entrypoints": ["src/index.ts"],
   "modules": [
@@ -750,7 +754,7 @@
         {
           "name": "square",
           "kind": "property",
-          "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+          "type": "import(\"chess.js/dist/types/chess\").Square",
           "required": true,
           "description": null
         }
@@ -827,7 +831,7 @@
       "relatedSymbols": ["ChessBoardOrientation"],
       "signatures": [
         {
-          "label": "(orientation: ChessBoardOrientation) => readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "label": "(orientation: ChessBoardOrientation) => readonly import(\"chess.js/dist/types/chess\").Square[]",
           "parameters": [
             {
               "name": "orientation",
@@ -836,7 +840,7 @@
               "description": null
             }
           ],
-          "returnType": "readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "returnType": "readonly import(\"chess.js/dist/types/chess\").Square[]",
           "returnDescription": null
         }
       ],
@@ -947,7 +951,7 @@
       "relatedSymbols": [],
       "signatures": [
         {
-          "label": "(fen: string, from: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "label": "(fen: string, from: import(\"chess.js/dist/types/chess\").Square) => readonly import(\"chess.js/dist/types/chess\").Square[]",
           "parameters": [
             {
               "name": "fen",
@@ -957,12 +961,12 @@
             },
             {
               "name": "from",
-              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "type": "import(\"chess.js/dist/types/chess\").Square",
               "required": true,
               "description": null
             }
           ],
-          "returnType": "readonly import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square[]",
+          "returnType": "readonly import(\"chess.js/dist/types/chess\").Square[]",
           "returnDescription": null
         }
       ],
@@ -985,11 +989,11 @@
       "relatedSymbols": [],
       "signatures": [
         {
-          "label": "(square: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => string",
+          "label": "(square: import(\"chess.js/dist/types/chess\").Square) => string",
           "parameters": [
             {
               "name": "square",
-              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "type": "import(\"chess.js/dist/types/chess\").Square",
               "required": true,
               "description": null
             }
@@ -1017,11 +1021,11 @@
       "relatedSymbols": [],
       "signatures": [
         {
-          "label": "(square: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => string",
+          "label": "(square: import(\"chess.js/dist/types/chess\").Square) => string",
           "parameters": [
             {
               "name": "square",
-              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "type": "import(\"chess.js/dist/types/chess\").Square",
               "required": true,
               "description": null
             }
@@ -1049,11 +1053,11 @@
       "relatedSymbols": [],
       "signatures": [
         {
-          "label": "(square: import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square) => boolean",
+          "label": "(square: import(\"chess.js/dist/types/chess\").Square) => boolean",
           "parameters": [
             {
               "name": "square",
-              "type": "import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square",
+              "type": "import(\"chess.js/dist/types/chess\").Square",
               "required": true,
               "description": null
             }
@@ -1315,7 +1319,7 @@
         {
           "name": "colorScheme",
           "kind": "property",
-          "type": "Partial<import(\"/Users/a_rtiphishl_e/git/zora-chess/src/OpeningBookColors\").OpeningBookColorScheme> | undefined",
+          "type": "Partial<import(\"./src/OpeningBookColors\").OpeningBookColorScheme> | undefined",
           "required": false,
           "description": null
         },
@@ -1394,7 +1398,7 @@
       "relatedSymbols": ["ChessPieceState"],
       "signatures": [
         {
-          "label": "(fen: string) => ReadonlyMap<import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square, ChessPieceState>",
+          "label": "(fen: string) => ReadonlyMap<import(\"chess.js/dist/types/chess\").Square, ChessPieceState>",
           "parameters": [
             {
               "name": "fen",
@@ -1403,7 +1407,7 @@
               "description": null
             }
           ],
-          "returnType": "ReadonlyMap<import(\"/Users/a_rtiphishl_e/git/zora-chess/node_modules/chess.js/dist/types/chess\").Square, ChessPieceState>",
+          "returnType": "ReadonlyMap<import(\"chess.js/dist/types/chess\").Square, ChessPieceState>",
           "returnDescription": null
         }
       ],
@@ -2301,18 +2305,8 @@
         "sourcePath": "src/engine.ts"
       },
       {
-        "fromSymbol": "ChessPieceState",
-        "toType": "Users",
-        "sourcePath": "src/engine.ts"
-      },
-      {
         "fromSymbol": "getLegalTargets",
         "toType": "Square",
-        "sourcePath": "src/engine.ts"
-      },
-      {
-        "fromSymbol": "getLegalTargets",
-        "toType": "Users",
         "sourcePath": "src/engine.ts"
       },
       {
@@ -2328,11 +2322,6 @@
       {
         "fromSymbol": "readChessPieces",
         "toType": "Square",
-        "sourcePath": "src/engine.ts"
-      },
-      {
-        "fromSymbol": "readChessPieces",
-        "toType": "Users",
         "sourcePath": "src/engine.ts"
       },
       {
@@ -2363,11 +2352,6 @@
       {
         "fromSymbol": "OpeningBookProps",
         "toType": "Partial",
-        "sourcePath": "src/OpeningBook.tsx"
-      },
-      {
-        "fromSymbol": "OpeningBookProps",
-        "toType": "Users",
         "sourcePath": "src/OpeningBook.tsx"
       },
       {
@@ -2406,18 +2390,8 @@
         "sourcePath": "src/squares.ts"
       },
       {
-        "fromSymbol": "createBoardSquares",
-        "toType": "Users",
-        "sourcePath": "src/squares.ts"
-      },
-      {
         "fromSymbol": "getSquareFile",
         "toType": "Square",
-        "sourcePath": "src/squares.ts"
-      },
-      {
-        "fromSymbol": "getSquareFile",
-        "toType": "Users",
         "sourcePath": "src/squares.ts"
       },
       {
@@ -2426,18 +2400,8 @@
         "sourcePath": "src/squares.ts"
       },
       {
-        "fromSymbol": "getSquareRank",
-        "toType": "Users",
-        "sourcePath": "src/squares.ts"
-      },
-      {
         "fromSymbol": "isLightSquare",
         "toType": "Square",
-        "sourcePath": "src/squares.ts"
-      },
-      {
-        "fromSymbol": "isLightSquare",
-        "toType": "Users",
         "sourcePath": "src/squares.ts"
       },
       {
