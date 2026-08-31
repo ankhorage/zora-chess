@@ -14,21 +14,21 @@ squares, and wire square presses into trainer or game-state logic.
 ### Signatures
 
 - `({
-  fen,
-  orientation = 'white',
-  selectedSquare = null,
-  legalTargets,
-  lastMove = null,
-  disabled = false,
-  showCoordinates = false,
-  validateMoves = true,
-  colorScheme: colorOverrides,
-  onSquarePress,
-  onMoveAttempt,
-  onLegalMove,
-  onInvalidMove,
-  renderPiece,
-  testID,
+fen,
+orientation = 'white',
+selectedSquare = null,
+legalTargets,
+lastMove = null,
+disabled = false,
+showCoordinates = false,
+validateMoves = true,
+colorScheme: colorOverrides,
+onSquarePress,
+onMoveAttempt,
+onLegalMove,
+onInvalidMove,
+renderPiece,
+testID,
 }: ChessBoardProps) => React.JSX.Element`
   - {
     fen,
@@ -329,15 +329,15 @@ win/draw/loss percentages next to a `ChessBoard` or position explorer.
 ### Signatures
 
 - `({
-  moves = [],
-  title = 'Opening book',
-  loading = false,
-  errorText,
-  emptyText = 'No book moves for this position.',
-  selectedMove = null,
-  colorScheme: colorOverrides,
-  onMovePress,
-  testID,
+moves = [],
+title = 'Opening book',
+loading = false,
+errorText,
+emptyText = 'No book moves for this position.',
+selectedMove = null,
+colorScheme: colorOverrides,
+onMovePress,
+testID,
 }: OpeningBookProps) => React.JSX.Element`
   - {
     moves = [],

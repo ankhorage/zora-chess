@@ -428,8 +428,7 @@
   onInvalidMove,
   renderPiece,
   testID,
-}: ChessBoardProps) =&gt; React.JSX.Element</pre
-                  >
+}: ChessBoardProps) =&gt; React.JSX.Element</pre>
                   <table>
                     <thead>
                       <tr>
@@ -524,8 +523,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(theme: ChessColorThemeShape, overrides?: Partial&lt;ChessBoardColorScheme&gt; | undefined) =&gt; ChessBoardColorScheme</pre
-                  >
+(theme: ChessColorThemeShape, overrides?: Partial&lt;ChessBoardColorScheme&gt; | undefined) =&gt; ChessBoardColorScheme</pre>
                   <table>
                     <thead>
                       <tr>
@@ -615,8 +613,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(fen: string, from: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; readonly import(&quot;chess.js/dist/types/chess&quot;).Square[]</pre
-                  >
+(fen: string, from: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; readonly import(&quot;chess.js/dist/types/chess&quot;).Square[]</pre>
                   <table>
                     <thead>
                       <tr>
@@ -665,8 +662,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(fen: string) =&gt; ReadonlyMap&lt;import(&quot;chess.js/dist/types/chess&quot;).Square, ChessPieceState&gt;</pre
-                  >
+(fen: string) =&gt; ReadonlyMap&lt;import(&quot;chess.js/dist/types/chess&quot;).Square, ChessPieceState&gt;</pre>
                   <table>
                     <thead>
                       <tr>
@@ -800,8 +796,7 @@
   colorScheme: colorOverrides,
   onMovePress,
   testID,
-}: OpeningBookProps) =&gt; React.JSX.Element</pre
-                  >
+}: OpeningBookProps) =&gt; React.JSX.Element</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1043,8 +1038,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(theme: ChessColorThemeShape, overrides?: Partial&lt;OpeningBookColorScheme&gt; | undefined) =&gt; OpeningBookColorScheme</pre
-                  >
+(theme: ChessColorThemeShape, overrides?: Partial&lt;OpeningBookColorScheme&gt; | undefined) =&gt; OpeningBookColorScheme</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1210,8 +1204,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(orientation: ChessBoardOrientation) =&gt; readonly import(&quot;chess.js/dist/types/chess&quot;).Square[]</pre
-                  >
+(orientation: ChessBoardOrientation) =&gt; readonly import(&quot;chess.js/dist/types/chess&quot;).Square[]</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1249,8 +1242,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(square: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; string</pre
-                  >
+(square: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; string</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1285,8 +1277,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(square: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; string</pre
-                  >
+(square: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; string</pre>
                   <table>
                     <thead>
                       <tr>
@@ -1321,8 +1312,7 @@
                 <div>
                   <h5>Signature</h5>
                   <pre>
-(square: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; boolean</pre
-                  >
+(square: import(&quot;chess.js/dist/types/chess&quot;).Square) =&gt; boolean</pre>
                   <table>
                     <thead>
                       <tr>
@@ -2104,8 +2094,7 @@ graph TD
   module_src_squares_ts --&gt; module_src_types_ts
   module_src_types_ts[&quot;src/types.ts&quot;]
   package__ankhorage_zora_chess -.-&gt; module_src_types_ts
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -2157,8 +2146,7 @@ graph LR
   module_src_OpeningBookColors_ts --&gt; module_src_colors_ts
   module_src_registry_ts --&gt; module_src_meta_ts
   module_src_squares_ts --&gt; module_src_types_ts
-</pre
-                >
+</pre>
               </details>
             </article>
             <article class="item" data-search="Export graph diagrams/export-graph.mmd">
@@ -2343,8 +2331,7 @@ graph LR
   export_tryMove -.-&gt; export_ChessMoveResult
   export_ZORA_CHESS_COMPONENT_META[&quot;ZORA_CHESS_COMPONENT_META&quot;]
   module_src_registry_ts --&gt; export_ZORA_CHESS_COMPONENT_META
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -2367,8 +2354,7 @@ sequenceDiagram
   participant participant_useZoraTheme as useZoraTheme
   participant_ChessBoard-&gt;&gt;participant_useZoraTheme: useZoraTheme()
   participant_useZoraTheme--&gt;&gt;participant_ChessBoard: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -2391,8 +2377,7 @@ sequenceDiagram
   participant participant_getLegalTargets as getLegalTargets
   participant_getLegalTargets-&gt;&gt;participant_createChess: createChess()
   participant_createChess--&gt;&gt;participant_getLegalTargets: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -2415,8 +2400,7 @@ sequenceDiagram
   participant participant_useZoraTheme as useZoraTheme
   participant_OpeningBook-&gt;&gt;participant_useZoraTheme: useZoraTheme()
   participant_useZoraTheme--&gt;&gt;participant_OpeningBook: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article
@@ -2439,8 +2423,7 @@ sequenceDiagram
   participant participant_readChessPieces as readChessPieces
   participant_readChessPieces-&gt;&gt;participant_createChess: createChess()
   participant_createChess--&gt;&gt;participant_readChessPieces: return
-</pre
-                >
+</pre>
               </details>
             </article>
             <article class="item" data-search="tryMove sequence diagrams/sequences/try-move.mmd">
@@ -2471,8 +2454,7 @@ sequenceDiagram
   participant_toMoveResult-&gt;&gt;participant_toPromotionPiece: toPromotionPiece()
   participant_toPromotionPiece--&gt;&gt;participant_toMoveResult: return
   participant_toMoveResult--&gt;&gt;participant_tryMove: return
-</pre
-                >
+</pre>
               </details>
             </article>
           </section>
