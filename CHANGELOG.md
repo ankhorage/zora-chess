@@ -1,5 +1,12 @@
 # @ankhorage/zora-chess
 
+## 0.1.3
+
+### Patch Changes
+
+- 623b9d8: Update Ankhorage dependencies: `@ankhorage/paradox`, `@ankhorage/zora`.
+- 9e897bd: Update Ankhorage dependencies: `@ankhorage/zora`.
+
 ## 0.1.2
 
 ### Patch Changes
