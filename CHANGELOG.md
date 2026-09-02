@@ -1,5 +1,11 @@
 # @ankhorage/zora-chess
 
+## 0.1.5
+
+### Patch Changes
+
+- d9d6982: Update Ankhorage dependencies: `@ankhorage/zora`.
+
 ## 0.1.4
 
 ### Patch Changes
