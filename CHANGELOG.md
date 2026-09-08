@@ -1,5 +1,11 @@
 # @ankhorage/zora-chess
 
+## 0.2.0
+
+### Minor Changes
+
+- 232bca1: Expose ChessBoard and OpeningBook through the canonical ZORA plugin descriptor with Studio authoring metadata.
+
 ## 0.1.7
 
 ### Patch Changes
