@@ -1,111 +1,177 @@
 export const chessBoardMeta = {
   name: 'ChessBoard',
   category: 'component',
-  directManifestNode: false,
+  description: 'Renders an interactive chess position with legal-move and selection feedback.',
+  directManifestNode: true,
   allowedChildren: [],
-  note: 'Code-facing chessboard component from @ankhorage/zora-chess, backed by chess.js and styled from the active ZORA theme; not represented as a manifest node in v1.',
-  props: {
-    fen: {
-      kind: 'string',
-      required: true,
-      note: 'Current board position in Forsyth-Edwards Notation.',
+  blueprint: {
+    label: 'Chess board',
+    defaultProps: {
+      fen: 'rn1qkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 0 2',
+      orientation: 'white',
+      showCoordinates: true,
+      validateMoves: true,
     },
-    orientation: {
-      kind: 'enum',
-      values: ['white', 'black'],
-      note: 'Board orientation from the active player perspective.',
+  },
+  bindings: {
+    props: {
+      fen: {
+        label: 'Position',
+        value: { type: 'string' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      orientation: {
+        label: 'Orientation',
+        value: { type: 'string' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      selectedSquare: {
+        label: 'Selected square',
+        value: { type: 'string' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      legalTargets: {
+        label: 'Legal targets',
+        value: { type: 'array', itemType: 'string' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      disabled: {
+        label: 'Disabled',
+        value: { type: 'boolean' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
     },
-    selectedSquare: {
-      kind: 'string',
-      nullable: true,
-      note: 'Currently selected square, such as e4.',
-    },
-    legalTargets: {
-      kind: 'array',
-      itemKind: 'string',
-      note: 'Legal target squares for the selected square.',
-    },
-    lastMove: {
-      kind: 'object',
-      nullable: true,
-      note: 'Last move marker with from/to square ids.',
+    events: {
+      squarePress: {
+        label: 'Square press',
+        payload: {
+          eventType: 'chess.squarePress',
+          fields: [{ path: 'payload.square', type: 'string', label: 'Square' }],
+        },
+      },
+      moveAttempt: {
+        label: 'Move attempt',
+        payload: {
+          eventType: 'chess.moveAttempt',
+          fields: [
+            { path: 'payload.from', type: 'string', label: 'From' },
+            { path: 'payload.to', type: 'string', label: 'To' },
+            { path: 'payload.promotion', type: 'string', label: 'Promotion' },
+          ],
+        },
+      },
+      legalMove: {
+        label: 'Legal move',
+        payload: {
+          eventType: 'chess.legalMove',
+          fields: [
+            { path: 'payload.from', type: 'string', label: 'From' },
+            { path: 'payload.to', type: 'string', label: 'To' },
+            { path: 'payload.fen', type: 'string', label: 'Position' },
+            { path: 'payload.san', type: 'string', label: 'SAN' },
+            { path: 'payload.lan', type: 'string', label: 'LAN' },
+          ],
+        },
+      },
+      invalidMove: {
+        label: 'Invalid move',
+        payload: {
+          eventType: 'chess.invalidMove',
+          fields: [
+            { path: 'payload.from', type: 'string', label: 'From' },
+            { path: 'payload.to', type: 'string', label: 'To' },
+          ],
+        },
+      },
     },
   },
   events: {
-    onLegalMove: {
-      note: 'Emitted after a locally validated legal move attempt.',
-      payload: {
-        from: {
-          kind: 'string',
-          note: 'Origin square id, such as e2.',
-        },
-        to: {
-          kind: 'string',
-          note: 'Target square id, such as e4.',
-        },
-        fen: {
-          kind: 'string',
-          note: 'Resulting board position after the legal move; suitable for operation input bindings.',
-        },
-        san: {
-          kind: 'string',
-          note: 'Move in Standard Algebraic Notation.',
-        },
-        lan: {
-          kind: 'string',
-          note: 'Move in long algebraic notation.',
-        },
-        promotion: {
-          kind: 'string',
-          optional: true,
-          note: 'Promotion piece when the move promotes a pawn.',
-        },
-      },
+    squarePress: {
+      label: 'Square press',
+      eventType: 'chess.squarePress',
+      payloadFields: [{ path: 'payload.square', type: 'string', label: 'Square' }],
     },
-    onInvalidMove: {
-      note: 'Emitted after a locally validated invalid move attempt.',
-      payload: {
-        from: {
-          kind: 'string',
-          note: 'Origin square id.',
-        },
-        to: {
-          kind: 'string',
-          note: 'Target square id.',
-        },
-        promotion: {
-          kind: 'string',
-          optional: true,
-          note: 'Requested promotion piece when present.',
-        },
-      },
+    moveAttempt: {
+      label: 'Move attempt',
+      eventType: 'chess.moveAttempt',
+      payloadFields: [
+        { path: 'payload.from', type: 'string', label: 'From' },
+        { path: 'payload.to', type: 'string', label: 'To' },
+        { path: 'payload.promotion', type: 'string', label: 'Promotion' },
+      ],
     },
-    onMoveAttempt: {
-      note: 'Emitted for a selected-square move attempt before optional local validation.',
-      payload: {
-        from: {
-          kind: 'string',
-          note: 'Origin square id.',
-        },
-        to: {
-          kind: 'string',
-          note: 'Target square id.',
-        },
-        promotion: {
-          kind: 'string',
-          optional: true,
-          note: 'Requested promotion piece when present.',
-        },
-      },
+    legalMove: {
+      label: 'Legal move',
+      eventType: 'chess.legalMove',
+      payloadFields: [
+        { path: 'payload.from', type: 'string', label: 'From' },
+        { path: 'payload.to', type: 'string', label: 'To' },
+        { path: 'payload.fen', type: 'string', label: 'Position' },
+        { path: 'payload.san', type: 'string', label: 'SAN' },
+        { path: 'payload.lan', type: 'string', label: 'LAN' },
+      ],
     },
-    onSquarePress: {
-      note: 'Emitted when a board square is pressed.',
-      payload: {
-        square: {
-          kind: 'string',
-          note: 'Pressed square id.',
-        },
-      },
+    invalidMove: {
+      label: 'Invalid move',
+      eventType: 'chess.invalidMove',
+      payloadFields: [
+        { path: 'payload.from', type: 'string', label: 'From' },
+        { path: 'payload.to', type: 'string', label: 'To' },
+      ],
+    },
+  },
+  props: {
+    fen: {
+      type: 'string',
+      category: 'Position',
+      label: 'FEN',
+      authoring: { authority: 'instance' },
+    },
+    orientation: {
+      type: 'enum',
+      category: 'Board',
+      label: 'Orientation',
+      enum: ['white', 'black'],
+      default: 'white',
+      authoring: { authority: 'instance' },
+    },
+    selectedSquare: {
+      type: 'string',
+      category: 'Position',
+      label: 'Selected square',
+      authoring: { authority: 'instance' },
+    },
+    legalTargets: {
+      type: 'array',
+      category: 'Position',
+      label: 'Legal targets',
+      authoring: { authority: 'instance' },
+    },
+    disabled: {
+      type: 'boolean',
+      category: 'State',
+      label: 'Disabled',
+      default: false,
+      authoring: { authority: 'instance' },
+    },
+    showCoordinates: {
+      type: 'boolean',
+      category: 'Board',
+      label: 'Show coordinates',
+      default: false,
+      authoring: { authority: 'instance' },
+    },
+    validateMoves: {
+      type: 'boolean',
+      category: 'Board',
+      label: 'Validate moves',
+      default: true,
+      authoring: { authority: 'instance' },
     },
   },
 } as const;
@@ -113,36 +179,109 @@ export const chessBoardMeta = {
 export const openingBookMeta = {
   name: 'OpeningBook',
   category: 'component',
-  directManifestNode: false,
+  description: 'Displays opening-book moves and position statistics.',
+  directManifestNode: true,
   allowedChildren: [],
-  note: 'Code-facing opening-book component from @ankhorage/zora-chess. It is presentational only; Studio or runtime bindings should provide moves from a data-source operation.',
+  blueprint: {
+    label: 'Opening book',
+    defaultProps: {
+      title: 'Opening book',
+      moves: [],
+      emptyText: 'No book moves for this position.',
+    },
+  },
+  bindings: {
+    props: {
+      moves: {
+        label: 'Moves',
+        value: { type: 'array', itemType: 'object' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      loading: {
+        label: 'Loading',
+        value: { type: 'boolean' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      errorText: {
+        label: 'Error text',
+        value: { type: 'string' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+      selectedMove: {
+        label: 'Selected move',
+        value: { type: 'string' },
+        acceptsFallback: true,
+        acceptsTransforms: true,
+      },
+    },
+    events: {
+      movePress: {
+        label: 'Move press',
+        payload: {
+          eventType: 'chess.openingMovePress',
+          fields: [
+            { path: 'payload.san', type: 'string', label: 'SAN' },
+            { path: 'payload.uci', type: 'string', label: 'UCI' },
+            { path: 'payload.fen', type: 'string', label: 'Position' },
+          ],
+        },
+      },
+    },
+  },
+  events: {
+    movePress: {
+      label: 'Move press',
+      eventType: 'chess.openingMovePress',
+      payloadFields: [
+        { path: 'payload.san', type: 'string', label: 'SAN' },
+        { path: 'payload.uci', type: 'string', label: 'UCI' },
+        { path: 'payload.fen', type: 'string', label: 'Position' },
+      ],
+    },
+  },
   props: {
     moves: {
-      kind: 'array',
-      itemKind: 'object',
-      bindable: true,
-      note: 'Candidate opening-book moves, typically bound from an operation result.',
+      type: 'array',
+      category: 'Content',
+      label: 'Moves',
+      default: [],
+      authoring: { authority: 'instance' },
+    },
+    title: {
+      type: 'string',
+      category: 'Content',
+      label: 'Title',
+      default: 'Opening book',
+      authoring: { authority: 'instance' },
     },
     loading: {
-      kind: 'boolean',
-      bindable: true,
-      note: 'Whether the caller is currently loading opening-book moves.',
+      type: 'boolean',
+      category: 'State',
+      label: 'Loading',
+      default: false,
+      authoring: { authority: 'instance' },
     },
     errorText: {
-      kind: 'string',
-      bindable: true,
-      note: 'Error copy supplied by the caller when opening-book moves could not be loaded.',
+      type: 'string',
+      category: 'State',
+      label: 'Error text',
+      authoring: { authority: 'instance' },
     },
     emptyText: {
-      kind: 'string',
-      bindable: true,
-      note: 'Empty-state copy shown when no moves are available.',
+      type: 'string',
+      category: 'Content',
+      label: 'Empty text',
+      default: 'No book moves for this position.',
+      authoring: { authority: 'instance' },
     },
     selectedMove: {
-      kind: 'string',
-      nullable: true,
-      bindable: true,
-      note: 'Selected SAN, UCI, or FEN identifier.',
+      type: 'string',
+      category: 'State',
+      label: 'Selected move',
+      authoring: { authority: 'instance' },
     },
   },
 } as const;

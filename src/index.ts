@@ -8,7 +8,8 @@ export type { OpeningBookMove, OpeningBookProps } from './OpeningBook';
 export { OpeningBook } from './OpeningBook';
 export type { OpeningBookColorOverrides, OpeningBookColorScheme } from './OpeningBookColors';
 export { createOpeningBookColorScheme } from './OpeningBookColors';
-export { ZORA_CHESS_COMPONENT_META } from './registry';
+export { ZORA_CHESS_COMPONENT_REGISTRY, ZORA_CHESS_PLUGIN } from './plugin';
+export { ZORA_CHESS_COMPONENT_META, ZORA_PLUGIN_METADATA } from './registry';
 export {
   chessSquares,
   createBoardSquares,
