@@ -1,5 +1,11 @@
 # @ankhorage/zora-chess
 
+## 0.2.1
+
+### Patch Changes
+
+- d0a649d: Validate the package against ZORA 19.0.1 and refresh its development dependency baseline.
+
 ## 0.2.0
 
 ### Minor Changes
