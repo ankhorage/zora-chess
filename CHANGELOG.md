@@ -1,5 +1,11 @@
 # @ankhorage/zora-chess
 
+## 0.2.2
+
+### Patch Changes
+
+- 85f3dd3: Align chess plugin placements with the current ZORA extension hosts and restore `View` as the generic placement parent.
+
 ## 0.2.1
 
 ### Patch Changes
