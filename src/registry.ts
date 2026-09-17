@@ -5,6 +5,8 @@ export const ZORA_CHESS_COMPONENT_META = {
   OpeningBook: openingBookMeta,
 } as const;
 
+const CHESS_PLACEMENT_PARENTS = ['Card', 'Grid', 'Screen', 'ScreenSection', 'View'] as const;
+
 export const ZORA_PLUGIN_METADATA = {
   packageName: '@ankhorage/zora-chess',
   displayName: 'ZORA Chess',
@@ -12,11 +14,11 @@ export const ZORA_PLUGIN_METADATA = {
   placements: [
     {
       child: 'ChessBoard',
-      parents: ['Box', 'Card', 'Container', 'Grid', 'Panel', 'Screen', 'ScreenSection', 'Stack'],
+      parents: CHESS_PLACEMENT_PARENTS,
     },
     {
       child: 'OpeningBook',
-      parents: ['Box', 'Card', 'Container', 'Grid', 'Panel', 'Screen', 'ScreenSection', 'Stack'],
+      parents: CHESS_PLACEMENT_PARENTS,
     },
   ],
 } as const;
