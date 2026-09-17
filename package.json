@@ -16,13 +16,14 @@
     "url": "git+https://github.com/ankhorage/zora-chess.git"
   },
   "keywords": [
+    "ankhorage",
+    "chess",
+    "expo",
+    "fen",
     "react-native",
     "react-native-web",
-    "chess",
-    "fen",
-    "expo",
-    "zora",
-    "ui-kit"
+    "ui-kit",
+    "zora"
   ],
   "files": [
     "dist",
